@@ -7,7 +7,7 @@ function Layout() {
   return (
     <div>
       <nav>
-        <h1>Protected Routes</h1>
+        <h3>Protected Routes</h3>
 
         {auth && (
           <>

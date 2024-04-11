@@ -4,7 +4,7 @@ import RequireAuth from './components/RequireAuth'
 import Layout from './components/Layout'
 import Login from './views/Login'
 import Characters from './views/Characters'
-// import Details from './views/Details'
+import Details from './views/Details'
 import NotFound from './views/NotFound'
 
 function App() {
@@ -17,13 +17,14 @@ function App() {
             <Route path="login" element={<Login />} />
 
             {/*protected routes */}
-          <Route element={<RequireAuth />}>
-            <Route path="/" element={<Characters />} />
-            {/* <Route path="details" element={<Details />} /> */}
-          </Route>
+            <Route element={<RequireAuth />}>
+              <Route path="/" element={<Characters />} />
+              {/*!!!!!!!! Hay que poner el id porque en la vista Details se pide el id por useParams!!!!! */}
+              <Route path="details/:id" element={<Details />} />
+            </Route>
 
-          {/*Missing Route*/}
-          <Route path="*" element={<NotFound />} />
+            {/*Missing Route*/}
+            <Route path="*" element={<NotFound />} />
 
           </Route>
         </Routes>

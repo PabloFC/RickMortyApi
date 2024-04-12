@@ -13,7 +13,7 @@ function Layout() {
           <>
             <ul>
               <li>
-                <Link to="/">Characters</Link>
+                <Link to="characters">Characters</Link>
               </li>
               <button onClick={logout}>Logout</button>
             </ul>

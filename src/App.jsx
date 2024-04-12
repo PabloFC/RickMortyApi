@@ -18,7 +18,7 @@ function App() {
 
             {/*protected routes */}
             <Route element={<RequireAuth />}>
-              <Route path="/" element={<Characters />} />
+              <Route path="/characters" element={<Characters />} />
               {/*!!!!!!!! Hay que poner el id porque en la vista Details se pide el id por useParams!!!!! */}
               <Route path="details/:id" element={<Details />} />
             </Route>

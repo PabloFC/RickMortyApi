@@ -24,7 +24,7 @@ function Login() {
         e.preventDefault();
         login(user);
         
-        navigate('/');
+        navigate('/characters');
     }
 
   return (

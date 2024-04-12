@@ -6,6 +6,7 @@ import Login from './views/Login'
 import Characters from './views/Characters'
 import Details from './views/Details'
 import NotFound from './views/NotFound'
+import AboutUs from './views/AboutUs'
 
 function App() {
 
@@ -19,8 +20,11 @@ function App() {
             {/*protected routes */}
             <Route element={<RequireAuth />}>
               <Route path="/characters" element={<Characters />} />
+              <Route path="/about" element={<AboutUs />} />
+
               {/*!!!!!!!! Hay que poner el id porque en la vista Details se pide el id por useParams!!!!! */}
               <Route path="details/:id" element={<Details />} />
+              
             </Route>
 
             {/*Missing Route*/}

@@ -1,13 +1,23 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
-import {createContext, useState, useContext} from 'react';
+import {createContext, useState, useContext, useEffect} from 'react';
+
 
 const AuthContext = createContext({});
 
 // eslint-disable-next-line react-refresh/only-export-components
 export default function AuthContextProvider({children}){
-    const [auth, setAuth] = useState(null);
+
+    let userStore=JSON.parse(localStorage.getItem("user")) || null;
+
+    const [auth, setAuth] = useState(userStore);
     const [errorMessage, setErrorMessage] = useState("");
+
+    useEffect(() => {
+        localStorage.setItem("user", JSON.stringify(auth));
+        }, [auth]);
+        
+    
 
     function login(user){
         if(user.email === "pablo@gmail.com" && user.password === "1234"){
@@ -20,6 +30,7 @@ export default function AuthContextProvider({children}){
 
     function logout(){
         setAuth(null)
+        localStorage.removeItem("user")
     }
 
     const value ={
@@ -29,7 +40,7 @@ export default function AuthContextProvider({children}){
     errorMessage
 }
 
-    return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
+return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 
 }
 

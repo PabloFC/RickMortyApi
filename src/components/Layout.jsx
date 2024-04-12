@@ -7,19 +7,21 @@ function Layout() {
   return (
     <div>
       <nav>
-        <h3>Protected Routes</h3>
-
         {auth && (
           <>
+            <h3>Protected Routes</h3>
             <ul>
               <li>
-                <Link to="characters">Characters</Link>
+                <Link to="/characters">Characters</Link>
+              </li><li>
+                <Link to="/about">About Us</Link>
               </li>
               <button onClick={logout}>Logout</button>
             </ul>
           </>
         )}
       </nav>
+  
       <main className="app">
         <Outlet />
       </main>

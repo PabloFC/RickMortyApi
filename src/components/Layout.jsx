@@ -12,8 +12,9 @@ function Layout() {
             <h3>Protected Routes</h3>
             <ul>
               <li>
-                <Link to="/characters">Characters</Link>
-              </li><li>
+                <Link to="/">Characters</Link>
+              </li>
+              <li>
                 <Link to="/about">About Us</Link>
               </li>
               <button onClick={logout}>Logout</button>
